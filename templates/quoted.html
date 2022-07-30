@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+<h1> {{ quotestock["name"] }} ({{ quotestock["symbol"] }}) </h1>
+<h2> {{ quotestock["price"] | usd }} </h2>
+
+<br>
+<a href="/quote" class="btn btn-primary">Back to Quote</a>
+<br><br>
+<a href="/" class="btn btn-secondary">Back to Portfolio</a>
+
+{% endblock %}
+
+

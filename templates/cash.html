@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cash Deposit
+{% endblock %}
+
+{% block main %}
+    <form action="/cash" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="cash_request" name="cash_request" placeholder="Amount ($)" type="text">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Deposit Cash</button>
+    </form>
+    <br>
+    <a href="/" class="btn btn-secondary">Back to Portfolio</a>
+
+{% endblock %}

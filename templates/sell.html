@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+
+        <div class="mb-3">
+            <label for="sell">Choose a Stock to Sell:</label>
+
+            {% if not portfolio %}
+            <select id="symbol" name="symbol">
+                <option value="None"> None</option>
+            </select>
+            {% else %}
+
+            <select id="symbol" name="symbol">
+                {% for symbol in portfolio %}
+                <option value="{{ symbol['symbol'] }}"> {{ symbol['symbol'] }} - Shares Owned ({{ symbol['SUM(number_shares)'] }})</option>
+                {% endfor %}
+            </select>
+
+            {% endif %}
+
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Number of Shares" type="text">
+            </div>
+
+        </div>
+
+        <button class="btn btn-primary" type="submit">Sell Stocks</button>
+    </form>
+    <br>
+    <a href="/" class="btn btn-secondary">Back to Portfolio</a>
+
+{% endblock %}

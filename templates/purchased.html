@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Purchased
+{% endblock %}
+
+{% block main %}
+
+<h1>You Completed your purchase of </h1>
+<h1> {{ buystock["name"] }} ({{ buystock["symbol"] }}) at {{ buystock["price"] | usd }} per Share</h1>
+<br>
+<h3> Total Price of Shares Bought: {{ (shares * buystock["price"]) | usd }} </h3>
+<h3> Current Balance: {{ current_balance | usd }} </h3>
+
+<form action="/" method="get">
+    <button class="btn btn-primary" type="submit">Go Back to Portfolio</button>
+</form>
+
+{% endblock %}

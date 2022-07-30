@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cash Confirmation
+{% endblock %}
+
+{% block main %}
+
+<h1>You Completed your deposit of {{ cash_request | usd }} </h1>
+<br><br>
+<h3> Current Balance in Account: {{ current_balance | usd }} </h3>
+
+<form action="/" method="get">
+    <button class="btn btn-primary" type="submit">Go Back to Portfolio</button>
+</form>
+
+{% endblock %}

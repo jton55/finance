@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sold
+{% endblock %}
+
+{% block main %}
+
+<h1>You Completed Your Sell Transaction </h1>
+<h1> {{ sellstock["name"] }} ({{ sellstock["symbol"] }}) at {{ sellstock["price"] | usd }} per Share</h1>
+<br>
+<h3> Total Price of Shares Sold: {{ (sellstock["price"] * shares) | usd }} </h3>
+<h3> Current Balance: {{ current_balance | usd }} </h3>
+
+<form action="/" method="get">
+    <button class="btn btn-primary" type="submit">Go Back to Portfolio</button>
+</form>
+
+{% endblock %}
