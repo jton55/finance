@@ -148,7 +148,7 @@ def history():
 
     #Get values from database
 
-    history = db.execute("SELECT symbol, number_shares, total_price_bought, stock_price, datestamp FROM history WHERE username = ?", session["user"])
+    history = db.execute("SELECT symbol, number_shares, total_price_bought, stock_price, datestamp FROM history WHERE username = ?", session["username"])
     HISTORY_LOG = history
 
     #for row in history:
