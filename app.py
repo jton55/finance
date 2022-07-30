@@ -25,6 +25,12 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
+#Heroku postgres DB
+#uri = os.getenv("postgres://lihwoixnwuffzj:35d43f4c69271cc00c4f0531336275819487765c55d9eefe1b42bba292f40b68@ec2-54-208-104-27.compute-1.amazonaws.com:5432/d9pl5vl57f70v7")
+#if uri.startswith("postgres://"):
+#    uri = uri.replace("postgres://", "postgresql://")
+#db = SQL(uri)
+
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
