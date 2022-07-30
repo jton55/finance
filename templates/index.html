@@ -6,52 +6,53 @@
 
 {% block main %}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Symbol</th>
-            <th>Total Shares</th>
-            <th>Current Price</th>
-            <th>Amount Value When Bought($)</th>
-            <th>Amount Value Now ($)</th>
-            <th>Gain/Loss</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for symbol in portfolio %}
+<div class = "table-responsive">
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ symbol["symbol"] }}</td>
-                <td>{{ symbol["SUM(number_shares)"] }}</td>
-                <td>{{ symbol["stock_price"] | usd }}</td>
-                <td>{{ symbol["SUM(total_price_bought)"] | usd }}</td>
-                <td>{{ (symbol["stock_price"] * symbol["SUM(number_shares)"]) | usd }}</td>
-                <td>{{ (symbol["SUM(total_price_bought)"] - (symbol["stock_price"] * symbol["SUM(number_shares)"])) | usd }}</td>
+                <th>Symbol</th>
+                <th>Total Shares</th>
+                <th>Current Price</th>
+                <th>Amount Value When Bought($)</th>
+                <th>Amount Value Now ($)</th>
+                <th>Gain/Loss</th>
             </tr>
-        {% endfor %}
-        {% for row in total_portfolio_shares %}
-            <tr>
-                <td><b>Total Stock Value</b></td>
-                <td><b>-</b></td>
-                <td><b>-</b></td>
-                <td><b>{{ row["SUM(total_price_bought)"] | usd }}</b></td>
-                <td><b>{{ row["SUM(total_current)"] | usd  }}</b></td>
-                <td><b>{{ row["SUM(total_price_bought)"] | usd }}</b></td>
-            </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for symbol in portfolio %}
+                <tr>
+                    <td>{{ symbol["symbol"] }}</td>
+                    <td>{{ symbol["SUM(number_shares)"] }}</td>
+                    <td>{{ symbol["stock_price"] | usd }}</td>
+                    <td>{{ symbol["SUM(total_price_bought)"] | usd }}</td>
+                    <td>{{ (symbol["stock_price"] * symbol["SUM(number_shares)"]) | usd }}</td>
+                    <td>{{ (symbol["SUM(total_price_bought)"] - (symbol["stock_price"] * symbol["SUM(number_shares)"])) | usd }}</td>
+                </tr>
+            {% endfor %}
+            {% for row in total_portfolio_shares %}
+                <tr>
+                    <td><b>Total Stock Value</b></td>
+                    <td><b>-</b></td>
+                    <td><b>-</b></td>
+                    <td><b>{{ row["SUM(total_price_bought)"] | usd }}</b></td>
+                    <td><b>{{ row["SUM(total_current)"] | usd  }}</b></td>
+                    <td><b>{{ row["SUM(total_price_bought)"] | usd }}</b></td>
+                </tr>
+            {% endfor %}
 
-        {% for row in user_info %}
-            <tr>
-                <td><b>Total Cash</b></td>
-                <td><b>-</b></td>
-                <td><b>-</b></td>
-                <td><b>-</b></td>
-                <td><b>{{ row["cash"] | usd }}</b></td>
-                <td><b>-</b></td>
-            </tr>
-        {% endfor %}
+            {% for row in user_info %}
+                <tr>
+                    <td><b>Total Cash</b></td>
+                    <td><b>-</b></td>
+                    <td><b>-</b></td>
+                    <td><b>-</b></td>
+                    <td><b>{{ row["cash"] | usd }}</b></td>
+                    <td><b>-</b></td>
+                </tr>
+            {% endfor %}
 
-    </tbody>
+        </tbody>
 
-</table>
-
+    </table>
+</div>
 {% endblock %}

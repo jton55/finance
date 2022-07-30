@@ -5,31 +5,31 @@
 {% endblock %}
 
 {% block main %}
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Symbol</th>
-            <th>Total Shares</th>
-            <th>Price Bought/Sold</th>
-            <th>Amount Transacted($)</th>
-            <th>Date and Time</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for symbol in history_log %}
+<div class = "table-responsive">
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ symbol["symbol"] }}</td>
-                <td>{{ symbol["number_shares"] }}</td>
-                <td>{{ symbol["stock_price"] | usd }}</td>
-                <td>{{ symbol["total_price_bought"] | usd }}</td>
-                <td>{{ symbol["datestamp"] }}</td>
+                <th>Symbol</th>
+                <th>Total Shares</th>
+                <th>Price Bought/Sold</th>
+                <th>Amount Transacted($)</th>
+                <th>Date and Time</th>
             </tr>
-        {% endfor %}
-    </tbody>
+        </thead>
+        <tbody>
+            {% for symbol in history_log %}
+                <tr>
+                    <td>{{ symbol["symbol"] }}</td>
+                    <td>{{ symbol["number_shares"] }}</td>
+                    <td>{{ symbol["stock_price"] | usd }}</td>
+                    <td>{{ symbol["total_price_bought"] | usd }}</td>
+                    <td>{{ symbol["datestamp"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
 
-</table>
-
+    </table>
+</div>
 <br>
 <a href="/" class="btn btn-primary">Back to Portfolio</a>
 
